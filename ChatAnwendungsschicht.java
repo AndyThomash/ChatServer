@@ -330,7 +330,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: VerbindungsabbauAnfrageREQ("+ici.toString()+","+"––"+")");
         if(client  != null){
-            PDU pdu = new PDU("VerbindungsabbauAnfrage",sdu.text); // erzeuge eine PDU mit dem Header "VerbindungsabbauAnfrage"
+            PDU pdu = new PDU("VerbindungsabbauAnfrage",sdu); // erzeuge eine PDU mit dem Header "VerbindungsabbauAnfrage"
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
@@ -386,7 +386,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: VerbindungsabbauREQ("+ici.toString()+","+"––"+")");
         if(server  != null){
-            PDU pdu = new PDU("Verbindungsabbau",sdu.text); // erzeuge eine PDU mit dem Header "Verbindungsabbau"
+            PDU pdu = new PDU("Verbindungsabbau",sdu); // erzeuge eine PDU mit dem Header "Verbindungsabbau"
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
@@ -442,7 +442,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: TextREQ("+ici.toString()+","+sdu.text+")");
         if(server  != null){
-            PDU pdu = new PDU("Text",sdu.text); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
+            PDU pdu = new PDU("Text",sdu); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
@@ -471,7 +471,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: TextAnmeldenREQ("+ici.toString()+","+sdu.text+")");
         if(client  != null){
-            PDU pdu = new PDU("TextAnmeldung",sdu.text); // erzeuge eine PDU mit dem Header "TextAnmeldung" und einen Datenteil mit sdu.text
+            PDU pdu = new PDU("TextAnmeldung",sdu); // erzeuge eine PDU mit dem Header "TextAnmeldung" und einen Datenteil mit sdu.text
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
@@ -488,7 +488,6 @@ public class ChatAnwendungsschicht extends Thread
     {
         getSocketZustand(ici.socket).zustand.TextIND(this,ici,sdu);
     }        
-
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
