@@ -43,7 +43,6 @@ import java.util.Set;
  * </ul>
  * @author LK
  * @version 2021-11-17
- * TestTest
  */
 public class ChatAnwendungsschicht extends Thread
 {
