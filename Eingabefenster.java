@@ -17,7 +17,9 @@ public class Eingabefenster extends Thread {
     private JFrame fenster = new JFrame();
 
     private boolean isActive = true; // true, solange das Eingabefenster aktiv ist
-
+    
+    private boolean FrageNachUserdaten = false;
+    
     private ChatClient client;  // Client, an den alle Texte weitergereicht werden
 
     public Eingabefenster(ChatClient client) {
@@ -45,13 +47,18 @@ public class Eingabefenster extends Thread {
         
         // solange die Eingabe aktiv sein soll
         while(isActive){
+            if (FrageNachUserdaten){
+                String antwort = ask(); // ruf den Dialog auf
             
-            String antwort = ask(); // ruf den Dialog auf
-            
-            // wenn es eine gültige antwort gibt
-            if (antwort != null && !antwort.equalsIgnoreCase("null")){
-                client.send(antwort); // schicke die antwort an den client
+                // wenn es eine gültige antwort gibt
+                if (antwort != null && !antwort.equalsIgnoreCase("null")){
+                    client.send(antwort); // schicke die antwort an den client
+                }
+            }else{
+                String username = JOptionPane.showInputDialog(fenster,"Bitte geben Sie einen Benutzernamen ein.");
+                client.sendUserdata(username);
             }
+            
         }
         
         // die Schleife wird verlassen, wenn das Eingabefenster nicht mehr aktiv ist

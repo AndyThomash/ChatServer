@@ -26,7 +26,7 @@ public class SDU
      */
     public SDU(String text)
     {
-        String[] strArray = text.split("µ~#",4);
+        String[] strArray = text.split("µ~#§$",4);
         
         if(strArray.length == 1){
             this.text = text;
@@ -50,7 +50,7 @@ public class SDU
 
     public void toText(){
         if (red != NULLCOLOR){
-            this.text = text+"µ~#"+red+"µ~#"+green+"µ~#"+blue;
+            this.text = text+"µ~#§$"+red+"µ~#§$"+green+"µ~#§$"+blue;
             this.red   =NULLCOLOR;
             this.green =NULLCOLOR;
             this.blue  =NULLCOLOR;
@@ -58,7 +58,7 @@ public class SDU
     }
 
     public void toColor(){
-        String[] strArray = text.split("µ~#",4);
+        String[] strArray = text.split("µ~#§$",4);
 
         if (red == NULLCOLOR && strArray.length == 4){
             this.text  = strArray[0];

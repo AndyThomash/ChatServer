@@ -578,6 +578,7 @@ public class ChatAnwendungsschicht extends Thread
                                     if (pdu.header.equalsIgnoreCase("TextAnmeldung")){TextAnmeldenIND(ici,sdu);}
                                     if (pdu.header.equalsIgnoreCase("VerbindungsabbauAnfrage")){VerbindungsabbauAnfrageIND(ici,sdu);}
                                     if (pdu.header.equalsIgnoreCase("Verbindungsabbau")){VerbindungsabbauIND(ici,sdu);}
+                                    if (pdu.header.equalsIgnoreCase("UsernameAnfrage")){}
                                 } catch(Exception e){
                                     e.printStackTrace();
                                 }

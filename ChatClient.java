@@ -162,10 +162,17 @@ public class ChatClient implements ClientType
                 }
             }
         }
-
-
     }
 
+    public synchronized void sendUserdata(String data){
+        System.out.println("Client: sendUserdata("+data+")");
+        // wenn eine Verbindung besteht
+        if (myICI != null){
+            SDU sdu = new SDU(data);
+            
+        }
+    }
+    
     /**
      * Schließt das Programm und alle gestarteten Threads.
      */
