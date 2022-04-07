@@ -1,6 +1,6 @@
 
 /**
- * Der Zustand VerbundenClient gilt beim Client nachdem die TCP-Verbindung aufgebaut wurde.
+ * Der Zustand AbfrageUserdataClient gilt beim Client nachdem die TCP-Verbindung aufgebaut wurde.
  * <p>
  * Es können in diesem Zustand folgende Methoden ausgeführt werden: <p>
  * Client:
@@ -16,19 +16,19 @@
  * @author LK
  * @version 2021-11-17
  */
-public class VerbundenClient extends ChatAnwendungsschichtZustand
+public class AbfrageUserdataClient extends ChatAnwendungsschichtZustand
 {
     // Klassenvariablen
-    private static VerbundenClient singelton;
+    private static AbfrageUserdataClient singelton;
     
     // Klassenmethode
     /**
      * Gibt das Singelton zurück. Ein Singelton wird beim ersten Aufruf erzeugt.
      * @return Singelton
      */
-    public static  VerbundenClient getSingelton(){
+    public static  AbfrageUserdataClient getSingelton(){
         if (singelton == null){
-            singelton = new VerbundenClient();
+            singelton = new AbfrageUserdataClient();
         }
         return singelton;
     }
@@ -37,11 +37,11 @@ public class VerbundenClient extends ChatAnwendungsschichtZustand
     
     
     /**
-     * Konstruktor für Objekte der Klasse VerbundenClient
+     * Konstruktor für Objekte der Klasse AbfrageUserdataClient
      */
-    private VerbundenClient()
+    private AbfrageUserdataClient()
     {
-        super("VerbundenClient"); // Aufruf des Konstruktors der ChatAnwendungsschichtZustand-Klasse
+        super("AbfrageUserdataClient"); // Aufruf des Konstruktors der ChatAnwendungsschichtZustand-Klasse
                                      // Der Aufruf der Konstruktormethode des Oberklasse muss in der ersten Zeile des Konstruktors stehen.
     }
 
@@ -58,7 +58,7 @@ public class VerbundenClient extends ChatAnwendungsschichtZustand
     public synchronized void VerbindungsabbauIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         kontext.VerbindungsabbauINDDO(ici,sdu);
-        System.out.println("Client: VerbundenClient -> TCPGetrennt");
+        System.out.println("Client: AbfrageUserdataClient -> TCPGetrennt");
         kontext.nextState(ici,TCPGetrennt.getSingelton());
     }
     /**
