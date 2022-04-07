@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * TestTestTest
- * Die Chatanwendungsschicht soll die Chatanwendnung 
+ * Die Chatanwendungsschicht soll die Chatanwendnung Test
  * bei der Übertragung der Nachrichten und 
  * der Steuerung der Kommunikation unterstützen.
  * <p>
