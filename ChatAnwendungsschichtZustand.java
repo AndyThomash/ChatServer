@@ -30,7 +30,7 @@ public abstract class ChatAnwendungsschichtZustand
     /**
      * VerbindungsaufbauREQ
      */
-    public  synchronized void VerbindungsaufbauREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    public synchronized void VerbindungsaufbauREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         System.err.println("ChatAnwendungsschicht –"+name+"–: VerbindungsaufbauREQ nicht möglich.");
         throw new ZustandException();
