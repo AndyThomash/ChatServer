@@ -404,6 +404,8 @@ public class ChatAnwendungsschicht extends Thread
         getSocketZustand(ici.socket).zustand.VerbindungsabbauIND(this,ici,sdu);
     }        
 
+    
+    
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
@@ -421,6 +423,125 @@ public class ChatAnwendungsschicht extends Thread
         }
     }
 
+    
+    //---
+    
+      /**
+     * Fordert die Übertragung des NickNames an den Client an.
+     * @param ici Verbindung
+     * @param sdu NickName
+     */
+    public synchronized void NickNameREQ(ICI ici,SDU sdu)  throws Exception
+    {
+        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+    }
+    
+    /**
+     * Wird von einem Zustand aufgerufen.
+     * <p>
+     * Fordert die Übertragung des NickNames an den Client an.
+     * @param ici Verbindung
+     * @param sdu NickName
+     */
+    public synchronized void NickNameREQDO(ICI ici,SDU sdu) throws Exception
+    {
+        System.out.println("ChatAnwendungsschicht: TextREQ("+ici.toString()+","+sdu.text+")");
+        if(server  != null){
+            PDU pdu = new PDU("Text",sdu); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
+
+            send(ici,pdu); // verschicke die PDU für diese Verbindung 
+        }else {
+            System.err.println("TextREQ: kein Server");
+        }
+    }
+    
+     /**
+     * Fordert die überprüfung des NickNames an
+     * @param ici Verbindung
+     * @param sdu ???
+     */
+    public synchronized void NickNameIND(ICI ici,SDU sdu)  throws Exception
+    {
+        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+    }
+    
+    
+    /**
+     * Wird von einem Zustand aufgerufen.
+     * <p>
+     * Meldet den NickName dem Dienstbenutzer (Server).
+     * @param ici Verbindung
+     * @param sdu ???
+     */
+    public synchronized void NickNameINDDO(ICI ici,SDU sdu) throws Exception
+    {
+        System.out.println("ChatAnwendungsschicht: VerbindungsabbauAnfrageIND("+ici.toString()+","+"––"+")");
+        if(server  != null){
+            server.VerbindungsabbauAnfrageIND(ici,sdu); // meldet dem server den Verbindungsabbauwunsch des Clients
+        }else {
+            System.err.println("VerbindungsabbauAnfrageIND: kein Server");
+        }
+    }
+    
+    
+     /**
+     * Fordert die Übertragung von der Annahme/Ablehnung des NickNames an den Client an.
+     * @param ici Verbindung
+     * @param sdu Information ob doppelt
+     */
+    public synchronized void NickNameRESP(ICI ici,SDU sdu)  throws Exception
+    {
+        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+    }
+    
+    /**
+     * Wird von einem Zustand aufgerufen.
+     * <p>
+     * Annahme/Ablehnung des NickNames
+     * @param ici Verbindung
+     * @param sdu Information ob doppelt
+     */
+    public synchronized void NickNameRESPDO(ICI ici,SDU sdu) throws Exception
+    {
+        System.out.println("ChatAnwendungsschicht: TextREQ("+ici.toString()+","+sdu.text+")");
+        if(server  != null){
+            PDU pdu = new PDU("Text",sdu); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
+
+            send(ici,pdu); // verschicke die PDU für diese Verbindung 
+        }else {
+            System.err.println("TextREQ: kein Server");
+        }
+    }
+    
+     /**
+     * Fordert die Übertragung von Text an den Client an.
+     * @param ici Verbindung
+     * @param sdu ???
+     */
+    public synchronized void NickNameCONF(ICI ici,SDU sdu)  throws Exception
+    {
+        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+    }
+    
+    /**
+     * Wird von einem Zustand aufgerufen.
+     * <p>
+     * Meldet das Ergebniss dem Dienstbenutzer (Client).
+     * @param ici Verbindung
+     * @param sdu ???
+     */
+    public synchronized void NickNameCONFDO(ICI ici,SDU sdu) throws Exception
+    {
+        System.out.println("ChatAnwendungsschicht: VerbindungsabbauAnfrageIND("+ici.toString()+","+"––"+")");
+        if(server  != null){
+            server.VerbindungsabbauAnfrageIND(ici,sdu); // meldet dem server den Verbindungsabbauwunsch des Clients
+        }else {
+            System.err.println("VerbindungsabbauAnfrageIND: kein Server");
+        }
+    }
+    
+    //------
+    
     /**
      * Fordert die Übertragung von Text an den Client an.
      * @param ici Verbindung

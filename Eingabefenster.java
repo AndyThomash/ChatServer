@@ -38,8 +38,9 @@ public class Eingabefenster extends Thread {
 
     /**
      * Diese Methode nicht aufrufen. Sie wird über start() gestartet (s. Thread).
-     * <p>
+     * <p> 
      * <b>Wiederholtes Anzeigen des Dialogfensters</b>
+     * 
      */
     @Override
     public void run() { 
@@ -57,6 +58,7 @@ public class Eingabefenster extends Thread {
             }else{
                 String username = JOptionPane.showInputDialog(fenster,"Bitte geben Sie einen Benutzernamen ein.");
                 client.sendUserdata(username);
+                FrageNachUserdaten = true;
             }
             
         }
