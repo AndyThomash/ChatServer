@@ -1,7 +1,13 @@
 import java.net.Socket;
 
+/**
+ * Verwaltet die Nicknames Serverseitig mithilfe einer noch
+ * nicht existierenden HashMap.
+ */
+
 public class NickVerwaltung
 {
+
  public NickVerwaltung() {
 
  }
@@ -9,18 +15,18 @@ public class NickVerwaltung
 
     /**
      * Methode zur Verarbeitung des eingegebenen Nicknames.
-     * @param name Name
+     * @param name Nickname
      * @param socket Socket
-     * @return String, socket
+     * @return Name und Socket
      */
- public boolean putNickname(String name, Socket socket) {
-     return false;
+ public String putNickname(String name, Socket socket) {
+     return "test";
  }
 
 
     /**
      * Methode zum Herausfinden des Nicknames.
-     * @param socket Socket
+     * @param socket socket
      * @return Socket or Null
      */
  public String getNickname(Socket socket){
