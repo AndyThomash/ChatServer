@@ -179,6 +179,31 @@ public class ChatClient implements ClientType
         }
     }
     
+    /** 
+     * Überprüfen und speichern des Namens wird aufgerufen.
+     * <p>
+     * ???
+     * @param ici mit socket
+     * @param sdu angenommen/Nicht Angenommen
+     */
+    public synchronized void NickNameCONF(ICI ici,SDU sdu)
+    {
+        // wenn ici existiert und ici.socket existiert
+        if (ici != null && ici.socket!=null) {
+            System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
+            
+            String antwort = sdu.text;
+            
+            if (antwort == "acc"){
+            
+            }else{
+             
+            }
+
+        }
+    }
+
+    
     /**
      * Schließt das Programm und alle gestarteten Threads.
      */

@@ -528,7 +528,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: NickNameCONF("+ici.toString()+","+"––"+")");
         if(server  != null){
-            //server.NickNameCONF(ici,sdu); // meldet dem Clienten die Antwort des Servers
+            //client.NickNameCONF(ici,sdu); // meldet dem Clienten die Antwort des Servers
         }else {
             System.err.println("NickNameCONFdo: kein Server");
         }

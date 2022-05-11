@@ -58,7 +58,7 @@ public class Eingabefenster extends Thread {
             }else{
                 String username = JOptionPane.showInputDialog(fenster,"Bitte geben Sie einen Benutzernamen ein.");
                 client.sendUserdata(username);
-                FrageNachUserdaten = true;
+                
             }
             
         }
