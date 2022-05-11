@@ -433,7 +433,7 @@ public class ChatAnwendungsschicht extends Thread
      */
     public synchronized void NickNameREQ(ICI ici,SDU sdu)  throws Exception
     {
-        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+        //getSocketZustand(ici.socket).zustand.NickNameREQ(this,ici,sdu);
     }
     
     /**
@@ -445,7 +445,7 @@ public class ChatAnwendungsschicht extends Thread
      */
     public synchronized void NickNameREQDO(ICI ici,SDU sdu) throws Exception
     {
-        System.out.println("ChatAnwendungsschicht: TextREQ("+ici.toString()+","+sdu.text+")");
+        System.out.println("ChatAnwendungsschicht: NickNameREQ("+ici.toString()+","+sdu.text+")");
         if(server  != null){
             PDU pdu = new PDU("Text",sdu); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
 
