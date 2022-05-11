@@ -169,7 +169,13 @@ public class ChatClient implements ClientType
         // wenn eine Verbindung besteht
         if (myICI != null && data != null){
             SDU sdu = new SDU(data);
-            
+            try{
+                anwendungsschicht.NickNameREQ(myICI,sdu); // fordere einen Textwunsch beim Server an
+            } catch(Exception e){
+                e.printStackTrace();
+                System.out.println("ChatClient (Text): unknown Error, ChatSystem will shut down.");
+                close();
+            }
         }
     }
     

@@ -404,8 +404,6 @@ public class ChatAnwendungsschicht extends Thread
         getSocketZustand(ici.socket).zustand.VerbindungsabbauIND(this,ici,sdu);
     }        
 
-    
-    
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
@@ -423,10 +421,8 @@ public class ChatAnwendungsschicht extends Thread
         }
     }
 
-    
     //---
-    
-      /**
+    /**
      * Fordert die Übertragung des NickNames an den Client an.
      * @param ici Verbindung
      * @param sdu NickName
@@ -435,7 +431,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         //getSocketZustand(ici.socket).zustand.NickNameREQ(this,ici,sdu);
     }
-    
+
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
@@ -447,53 +443,51 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: NickNameREQ("+ici.toString()+","+sdu.text+")");
         if(server  != null){
-            PDU pdu = new PDU("Text",sdu); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
+            PDU pdu = new PDU("NickNameAnfrage",sdu); // erzeuge eine PDU mit dem Header "NickNameAnfrage" und einen Datenteil mit sdu.text
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
             System.err.println("TextREQ: kein Server");
         }
     }
-    
-     /**
+
+    /**
      * Fordert die überprüfung des NickNames an
      * @param ici Verbindung
-     * @param sdu ???
+     * @param sdu NickName
      */
     public synchronized void NickNameIND(ICI ici,SDU sdu)  throws Exception
     {
-        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+        //getSocketZustand(ici.socket).zustand.NickNameIND(this,ici,sdu);
     }
-    
-    
+
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
      * Meldet den NickName dem Dienstbenutzer (Server).
      * @param ici Verbindung
-     * @param sdu ???
+     * @param sdu NickName
      */
     public synchronized void NickNameINDDO(ICI ici,SDU sdu) throws Exception
     {
-        System.out.println("ChatAnwendungsschicht: VerbindungsabbauAnfrageIND("+ici.toString()+","+"––"+")");
+        System.out.println("ChatAnwendungsschicht: NickNameIND("+ici.toString()+","+"––"+")");
         if(server  != null){
-            server.VerbindungsabbauAnfrageIND(ici,sdu); // meldet dem server den Verbindungsabbauwunsch des Clients
+            //server.NickNameIND(ici,sdu); // meldet dem server Namenswunsch des Clients
         }else {
-            System.err.println("VerbindungsabbauAnfrageIND: kein Server");
+            System.err.println("NickNameIND: kein Server");
         }
     }
-    
-    
-     /**
+
+    /**
      * Fordert die Übertragung von der Annahme/Ablehnung des NickNames an den Client an.
      * @param ici Verbindung
      * @param sdu Information ob doppelt
      */
     public synchronized void NickNameRESP(ICI ici,SDU sdu)  throws Exception
     {
-        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+        //getSocketZustand(ici.socket).zustand.NickNameRESP(this,ici,sdu);
     }
-    
+
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
@@ -505,43 +499,43 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: TextREQ("+ici.toString()+","+sdu.text+")");
         if(server  != null){
-            PDU pdu = new PDU("Text",sdu); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
+            PDU pdu = new PDU("NickNameAntwort",sdu); // erzeuge eine PDU mit dem Header "Text" und einen Datenteil mit sdu.text
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
-            System.err.println("TextREQ: kein Server");
+            System.err.println("NickNameRESPdo: kein Server");
         }
     }
-    
-     /**
+
+    /**
      * Fordert die Übertragung von Text an den Client an.
      * @param ici Verbindung
-     * @param sdu ???
+     * @param sdu Information ob doppelt
      */
     public synchronized void NickNameCONF(ICI ici,SDU sdu)  throws Exception
     {
-        getSocketZustand(ici.socket).zustand.TextREQ(this,ici,sdu);
+        //getSocketZustand(ici.socket).zustand.NickNameCONF(this,ici,sdu);
     }
-    
+
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
      * Meldet das Ergebniss dem Dienstbenutzer (Client).
      * @param ici Verbindung
-     * @param sdu ???
+     * @param sdu Information ob doppelt
      */
     public synchronized void NickNameCONFDO(ICI ici,SDU sdu) throws Exception
     {
-        System.out.println("ChatAnwendungsschicht: VerbindungsabbauAnfrageIND("+ici.toString()+","+"––"+")");
+        System.out.println("ChatAnwendungsschicht: NickNameCONF("+ici.toString()+","+"––"+")");
         if(server  != null){
-            server.VerbindungsabbauAnfrageIND(ici,sdu); // meldet dem server den Verbindungsabbauwunsch des Clients
+            //server.NickNameCONF(ici,sdu); // meldet dem Clienten die Antwort des Servers
         }else {
-            System.err.println("VerbindungsabbauAnfrageIND: kein Server");
+            System.err.println("NickNameCONFdo: kein Server");
         }
     }
-    
+
     //------
-    
+
     /**
      * Fordert die Übertragung von Text an den Client an.
      * @param ici Verbindung
@@ -609,6 +603,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         getSocketZustand(ici.socket).zustand.TextIND(this,ici,sdu);
     }        
+
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
@@ -699,7 +694,9 @@ public class ChatAnwendungsschicht extends Thread
                                     if (pdu.header.equalsIgnoreCase("TextAnmeldung")){TextAnmeldenIND(ici,sdu);}
                                     if (pdu.header.equalsIgnoreCase("VerbindungsabbauAnfrage")){VerbindungsabbauAnfrageIND(ici,sdu);}
                                     if (pdu.header.equalsIgnoreCase("Verbindungsabbau")){VerbindungsabbauIND(ici,sdu);}
-                                    if (pdu.header.equalsIgnoreCase("UsernameAnfrage")){}
+                                    if (pdu.header.equalsIgnoreCase("NickNameAnfrage")){NickNameIND(ici,sdu);}
+                                    if (pdu.header.equalsIgnoreCase("NickNameAntwort")){NickNameCONF(ici,sdu);}
+
                                 } catch(Exception e){
                                     e.printStackTrace();
                                 }
