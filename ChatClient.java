@@ -169,9 +169,40 @@ public class ChatClient implements ClientType
         // wenn eine Verbindung besteht
         if (myICI != null && data != null){
             SDU sdu = new SDU(data);
-            
+            try{
+                anwendungsschicht.NickNameREQ(myICI,sdu); // fordere einen Textwunsch beim Server an
+            } catch(Exception e){
+                e.printStackTrace();
+                System.out.println("ChatClient (Text): unknown Error, ChatSystem will shut down.");
+                close();
+            }
         }
     }
+    
+    /** 
+     * Überprüfen und speichern des Namens wird aufgerufen.
+     * <p>
+     * ???
+     * @param ici mit socket
+     * @param sdu angenommen/Nicht Angenommen
+     */
+    public synchronized void NickNameCONF(ICI ici,SDU sdu)
+    {
+        // wenn ici existiert und ici.socket existiert
+        if (ici != null && ici.socket!=null) {
+            System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
+            
+            String antwort = sdu.text;
+            
+            if (antwort == "acc"){
+            
+            }else{
+             
+            }
+
+        }
+    }
+
     
     /**
      * Schließt das Programm und alle gestarteten Threads.

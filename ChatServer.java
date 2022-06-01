@@ -95,6 +95,38 @@ public class ChatServer  implements ServerType
         }
     }
 
+    /** 
+     * Überprüfen und speichern des Namens wird aufgerufen.
+     * <p>
+     * ???
+     * @param ici mit socket
+     * @param sdu gewählter Name
+     */
+    public synchronized void NickNameIND(ICI ici,SDU sdu)
+    {
+        // wenn ici existiert und ici.socket existiert
+        if (ici != null && ici.socket!=null) {
+            System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
+            
+            String antwort;
+            //antwort = NickVerwaltung.putNickname(sdu.text,ici.socket);
+            
+            try
+            {
+                //Erzeugung der Antwort an den Client mit Versionsnummer
+                System.out.println("NickNameRESP wird ausgeführt");
+                //anwendungsschicht.NickNameRESP(ici,new SDU(antwort));
+            }
+            catch (Exception ze)
+            {
+                ze.printStackTrace();
+                System.out.println("ChatServer: unknown Error, ChatSystem will shut down.");
+                close();
+            }
+        }
+    }
+
+    
     /**
      * Anzeige eines Textwunsches beim Server. <p>
      * Es wird eine Textanforderung für diesen Text an alle bekannten Clientverbindungen geschickt.
