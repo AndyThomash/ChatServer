@@ -8,12 +8,13 @@ import java.util.*;
 
 public class NickVerwaltung
 {
+    // Creating an empty HashMap
+    HashMap<Socket, String> nickname = new HashMap<Socket, String>();
+    
+    //public static void main(String[] args)
+    //{
 
-    public static void main(String[] args)
-    {
-
-        // Creating an empty HashMap
-        HashMap<Socket, String> nickname = new HashMap<Socket, String>();
+        
         //**
         // Mapping string values to int keys
         //nickname.put(10, "Geeks");
@@ -23,7 +24,7 @@ public class NickVerwaltung
         //nickname.put(30, "You");
 
         // Displaying the HashMap
-        System.out.println("Initial Mappings are: " + nickname);
+       // System.out.println("Initial Mappings are: " + nickname);
 
         // Inserting existing key along with new value
         //String returned_value = (String)nickname.put(20, "All");
@@ -32,8 +33,8 @@ public class NickVerwaltung
         //System.out.println("Returned value is: " + returned_value);
 
         // Displaying the new map
-        System.out.println("New map is: " + nickname);
-    }
+        //System.out.println("New map is: " + nickname);
+    //}
 
 
      public NickVerwaltung() {
@@ -46,7 +47,7 @@ public class NickVerwaltung
      * @return Name und Socket
      */
      public String putNickname(String name, Socket socket) {
-         return "acc & decl";
+         return "acc & decl😎";
      }
 
 
@@ -56,7 +57,7 @@ public class NickVerwaltung
      * @return Socket or Null
     */
      public String getNickname(Socket socket){
-         return null;
+         return nickname.get(socket);
      }
 
 
