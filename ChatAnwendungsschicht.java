@@ -471,7 +471,7 @@ public class ChatAnwendungsschicht extends Thread
     public synchronized void NickNameINDDO(ICI ici,SDU sdu) throws Exception
     {
         System.out.println("ChatAnwendungsschicht: NickNameIND("+ici.toString()+","+"––"+")");
-        if(server != null){
+        if(server  != null){
             server.NickNameIND(ici,sdu); // meldet dem server Namenswunsch des Clients
         }else {
             System.err.println("NickNameIND: kein Server");
