@@ -46,7 +46,7 @@ public abstract class ChatAnwendungsschichtZustand
     }
 
     /**
-     * VerbindungsaufbauIND
+     * VerbindungsaufbauRESP
      */
     public synchronized void VerbindungsaufbauRESP(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
@@ -55,11 +55,47 @@ public abstract class ChatAnwendungsschichtZustand
     }
     
     /**
-     * VerbindungsaufbauIND
+     * VerbindungsaufbauCONF
      */
     public synchronized void VerbindungsaufbauCONF(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         System.err.println("ChatAnwendungsschicht –"+name+"–: VerbindungsaufbauCONF nicht möglich.");
+        throw new ZustandException();
+    }
+    
+    /**
+     * NickNameREQ
+     */
+    public synchronized void NickNameREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    {
+        System.err.println("ChatAnwendungsschicht –"+name+"–: NickNameREQ nicht möglich.");
+        throw new ZustandException();
+    }
+    
+    /**
+     * NickNameIND
+     */
+    public synchronized void NickNameIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    {
+        System.err.println("ChatAnwendungsschicht –"+name+"–: NickNameIND nicht möglich.");
+        throw new ZustandException();
+    }
+    
+    /**
+     * NickNameRESP
+     */
+    public synchronized void NickNameRESP(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    {
+        System.err.println("ChatAnwendungsschicht –"+name+"–: NickNameRESP nicht möglich.");
+        throw new ZustandException();
+    }
+    
+    /**
+     * NickNameCONF
+     */
+    public synchronized void NickNameCONF(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    {
+        System.err.println("ChatAnwendungsschicht –"+name+"–: NickNameCONF nicht möglich.");
         throw new ZustandException();
     }
     

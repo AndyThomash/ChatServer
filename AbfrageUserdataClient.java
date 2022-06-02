@@ -46,33 +46,24 @@ public class AbfrageUserdataClient extends ChatAnwendungsschichtZustand
     }
 
     /**
-     * VerbindungsabbauAnfrageREQ
+     * NickNameREQ
      */
-    public synchronized void VerbindungsabbauAnfrageREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    public synchronized void NickNameREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
-        kontext.VerbindungsabbauAnfrageREQDO(ici,sdu);
+        kontext.NickNameREQDO(ici,sdu);
     }
+    
     /**
-     * VerbindungsabbauIND
+     * NickNameCONF
      */
-    public synchronized void VerbindungsabbauIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    public synchronized void NickNameCONF(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
-        kontext.VerbindungsabbauINDDO(ici,sdu);
-        System.out.println("Client: AbfrageUserdataClient -> VerbundenClient");
-        kontext.nextState(ici,VerbundenClient.getSingelton());
-    }
-    /**
-     * TextAnmeldenREQ
-     */
-    public synchronized void TextAnmeldenREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
-    {
-        kontext.TextAnmeldenREQDO(ici,sdu);
-    }     
-    /**
-     * TextIND
-     */
-    public synchronized void TextIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
-    {
-        kontext.TextINDDO(ici,sdu);
+        kontext.NickNameCONFDO(ici,sdu);
+        if(sdu.text=="NOT_ACCEPTED"){
+            kontext.VerbindungsabbauAnfrageIND(ici,sdu);
+        }else{
+            System.out.println("Client: AbfrageUserdataClient -> VerbundenClient");
+            kontext.nextState(ici,VerbundenClient.getSingelton());
+        }
     }
 }
