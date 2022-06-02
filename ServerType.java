@@ -20,5 +20,8 @@ public interface ServerType
      * Ein Verbindungsabbau wird angezeigt.
      */
     public void VerbindungsabbauAnfrageIND(ICI ici, SDU sdu);
-    
+    /**
+     * Ein Verbindungsabbau wird angezeigt.
+     */
+    public void NickNameIND(ICI ici, SDU sdu);
 }
