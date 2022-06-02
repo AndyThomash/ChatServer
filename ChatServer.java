@@ -29,6 +29,7 @@ public class ChatServer  implements ServerType
     private boolean isActive = true; // true, solange der Server läuft
     private ChatAnwendungsschicht anwendungsschicht = new ChatAnwendungsschicht(this);
     private ArrayList<Socket> socketListe = new ArrayList<Socket>(); // Liste aller Verbindungen zu den Clients
+    private NickVerwaltung nickVerwaltung = new NickVerwaltung();
 
     /**
      * Konstruktor für Objekte der Klasse ChatServer
