@@ -29,7 +29,7 @@ public class ChatServer  implements ServerType
     private boolean isActive = true; // true, solange der Server läuft
     private ChatAnwendungsschicht anwendungsschicht = new ChatAnwendungsschicht(this);
     private ArrayList<Socket> socketListe = new ArrayList<Socket>(); // Liste aller Verbindungen zu den Clients
-
+    
     /**
      * Konstruktor für Objekte der Klasse ChatServer
      * @param port Port, auf dem der Server horchen soll
@@ -108,14 +108,12 @@ public class ChatServer  implements ServerType
         if (ici != null && ici.socket!=null) {
             System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
             
-            String antwort;
-            //antwort = NickVerwaltung.putNickname(sdu.text,ici.socket);
+            String antwort = nickverwaltung.putNickname(sdu.text,ici.socket);
             
             try
             {
-                
                 System.out.println("NickNameRESP wird ausgeführt");
-                //anwendungsschicht.NickNameRESP(ici,new SDU(antwort));
+                anwendungsschicht.NickNameRESP(ici,new SDU(antwort));
             }
             catch (Exception ze)
             {
