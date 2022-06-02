@@ -58,8 +58,8 @@ public class AbfrageUserdataClient extends ChatAnwendungsschichtZustand
     public synchronized void VerbindungsabbauIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         kontext.VerbindungsabbauINDDO(ici,sdu);
-        System.out.println("Client: AbfrageUserdataClient -> TCPGetrennt");
-        kontext.nextState(ici,TCPGetrennt.getSingelton());
+        System.out.println("Client: AbfrageUserdataClient -> VerbundenClient");
+        kontext.nextState(ici,VerbundenClient.getSingelton());
     }
     /**
      * TextAnmeldenREQ

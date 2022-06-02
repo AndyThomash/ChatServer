@@ -46,8 +46,8 @@ public class VerbindungsaufbauWartendServer extends ChatAnwendungsschichtZustand
      */
     public synchronized void VerbindungsaufbauRESP(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
-        System.out.println("Server: VerbindungsaufbauWartendServer -> TCPVerbundenServer");
-        kontext.nextState(ici,VerbundenServer.getSingelton());
+        System.out.println("Server: VerbindungsaufbauWartendServer -> AbfrageUserdataServer");
+        kontext.nextState(ici,AbfrageUserdataServer.getSingelton());
         kontext.VerbindungsaufbauRESPDO(ici,sdu);
     }
 }

@@ -56,8 +56,8 @@ public class AbfrageUserdataServer extends ChatAnwendungsschichtZustand
     public synchronized void VerbindungsabbauREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         kontext.VerbindungsabbauREQDO(ici,sdu);
-        System.out.println("Server: AbfrageUserdataServer -> TCPGetrennt");
-        kontext.nextState(ici,TCPGetrennt.getSingelton());
+        System.out.println("Server: AbfrageUserdataServer -> VerbundenServer");
+        kontext.nextState(ici,VerbundenServer.getSingelton());
     }
     /**
      * TextREQ
