@@ -485,7 +485,7 @@ public class ChatAnwendungsschicht extends Thread
      */
     public synchronized void NickNameRESP(ICI ici,SDU sdu)  throws Exception
     {
-        //getSocketZustand(ici.socket).zustand.NickNameRESP(this,ici,sdu);
+        getSocketZustand(ici.socket).zustand.NickNameRESP(this,ici,sdu);
     }
 
     /**
@@ -514,7 +514,7 @@ public class ChatAnwendungsschicht extends Thread
      */
     public synchronized void NickNameCONF(ICI ici,SDU sdu)  throws Exception
     {
-        //getSocketZustand(ici.socket).zustand.NickNameCONF(this,ici,sdu);
+        getSocketZustand(ici.socket).zustand.NickNameCONF(this,ici,sdu);
     }
 
     /**
@@ -528,13 +528,11 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: NickNameCONF("+ici.toString()+","+"––"+")");
         if(server  != null){
-            //client.NickNameCONF(ici,sdu); // meldet dem Clienten die Antwort des Servers
+            client.NickNameCONF(ici,sdu); // meldet dem Clienten die Antwort des Servers
         }else {
             System.err.println("NickNameCONFdo: kein Server");
         }
     }
-
-    //------
 
     /**
      * Fordert die Übertragung von Text an den Client an.

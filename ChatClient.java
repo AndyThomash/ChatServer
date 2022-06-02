@@ -199,7 +199,6 @@ public class ChatClient implements ClientType
             }else{
                 System.out.println("Dieser Username ist bereits vergeben. Wählen Sie einen anderen!");
             }
-
         }
     }
 
