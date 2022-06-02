@@ -108,12 +108,19 @@ public class ChatServer  implements ServerType
         if (ici != null && ici.socket!=null) {
             System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
             
-            String antwort = nickVerwaltung.putNickname(sdu.text,ici.socket);
+            boolean antwortBoolean = nickVerwaltung.putNickname(ici.socket,sdu.text);
+            String antwortString;
+            if(antwortBoolean){
+                antwortString = "ACCEPTED";
+            }else{
+                antwortString = "NOT_ACCEPTED";
+            }
+            
             
             try
             {
                 System.out.println("NickNameRESP wird ausgeführt");
-                anwendungsschicht.NickNameRESP(ici,new SDU(antwort));
+                anwendungsschicht.NickNameRESP(ici,new SDU(antwortString));
             }
             catch (Exception ze)
             {

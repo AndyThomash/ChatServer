@@ -10,55 +10,40 @@ public class NickVerwaltung
 {
     // Creating an empty HashMap
     HashMap<Socket, String> nickname = new HashMap<Socket, String>();
-    
-    //public static void main(String[] args)
-    //{
 
-        
-        //**
-        // Mapping string values to int keys
-        //nickname.put(10, "Geeks");
-        //nickname.put(15, "4");
-        //nickname.put(20, "Geeks");
-        //nickname.put(25, "Welcomes");
-        //nickname.put(30, "You");
+    public NickVerwaltung() {
 
-        // Displaying the HashMap
-       // System.out.println("Initial Mappings are: " + nickname);
+    }
 
-        // Inserting existing key along with new value
-        //String returned_value = (String)nickname.put(20, "All");
-
-        // Verifying the returned value
-        //System.out.println("Returned value is: " + returned_value);
-
-        // Displaying the new map
-        //System.out.println("New map is: " + nickname);
-    //}
-
-
-     public NickVerwaltung() {
-         
-     }
-     /**
+    /**
      * Methode zur Verarbeitung des eingegebenen Nicknames.
      * @param name Nickname
      * @param socket Socket
-     * @return Name und Socket
+     * @return booloan 
      */
-     public String putNickname(String name, Socket socket) {
-         return "acc & decl😎";
-     }
+    public boolean putNickname(Socket socket, String name) {
+        Collection<String> nicks  = nickname.values();
 
+        boolean notfound = true;
+        for(String nick : nicks){
+            if(nick.equals(name)){
+                notfound = false;
+            }
+        }
+
+        if (notfound) {
+            nickname.put(socket,name);
+        }
+        return notfound;
+    }
 
     /**
      * Methode zum Herausfinden des Nicknames.
      * @param socket socket
      * @return Socket or Null
-    */
-     public String getNickname(Socket socket){
-         return nickname.get(socket);
-     }
-
+     */
+    public String getNickname(Socket socket){
+        return nickname.get(socket);
+    }
 
 }
