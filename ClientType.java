@@ -22,4 +22,9 @@ public interface ClientType
      * Der Verbindungsabbau wird angezeigt.
      */
     public void VerbindungsabbauIND(ICI ici, SDU sdu);
+    
+    /**
+     * 
+     */
+    public  void NickNameCONF(ICI ici,SDU sdu);
 }
