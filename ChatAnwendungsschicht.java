@@ -429,7 +429,7 @@ public class ChatAnwendungsschicht extends Thread
      */
     public synchronized void NickNameREQ(ICI ici,SDU sdu) throws Exception
     {
-        //getSocketZustand(ici.socket).zustand.NickNameREQ(this,ici,sdu);
+        getSocketZustand(ici.socket).zustand.NickNameREQ(this,ici,sdu);
     }
 
     /**
