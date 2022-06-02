@@ -458,7 +458,7 @@ public class ChatAnwendungsschicht extends Thread
      */
     public synchronized void NickNameIND(ICI ici,SDU sdu)  throws Exception
     {
-        //getSocketZustand(ici.socket).zustand.NickNameIND(this,ici,sdu);
+        getSocketZustand(ici.socket).zustand.NickNameIND(this,ici,sdu);
     }
 
     /**
@@ -472,7 +472,7 @@ public class ChatAnwendungsschicht extends Thread
     {
         System.out.println("ChatAnwendungsschicht: NickNameIND("+ici.toString()+","+"––"+")");
         if(server  != null){
-            //server.NickNameIND(ici,sdu); // meldet dem server Namenswunsch des Clients
+            server.NickNameIND(ici,sdu); // meldet dem server Namenswunsch des Clients
         }else {
             System.err.println("NickNameIND: kein Server");
         }

@@ -113,7 +113,7 @@ public class ChatServer  implements ServerType
             
             try
             {
-                //Erzeugung der Antwort an den Client mit Versionsnummer
+                
                 System.out.println("NickNameRESP wird ausgeführt");
                 //anwendungsschicht.NickNameRESP(ici,new SDU(antwort));
             }
