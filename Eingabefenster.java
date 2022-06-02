@@ -76,5 +76,9 @@ public class Eingabefenster extends Thread {
         isActive = false;
         fenster.dispose(); // schließe das Fenster
 
-    } 
+    }
+    
+    public void unactiveFrageNachUserdaten(){
+        FrageNachUserdaten = false;
+    }
 }

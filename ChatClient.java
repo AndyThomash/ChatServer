@@ -194,10 +194,10 @@ public class ChatClient implements ClientType
             
             String antwort = sdu.text;
             
-            if (antwort == "acc"){
-            
+            if (antwort == "ACCPETED"){
+                eingabe.unactiveFrageNachUserdaten();
             }else{
-             
+                System.out.println("Dieser Username ist bereits vergeben. Wählen Sie einen anderen!");
             }
 
         }
