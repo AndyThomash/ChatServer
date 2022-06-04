@@ -215,7 +215,7 @@ public class ChatClient implements ClientType
     /**
      * Schließt das Programm und alle gestarteten Threads.
      */
-    public synchronized  void close(){
+    public synchronized void close(){
         System.out.println("Client: close("+")");
         isActive = false;
 
