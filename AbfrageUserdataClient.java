@@ -59,9 +59,7 @@ public class AbfrageUserdataClient extends ChatAnwendungsschichtZustand
     public synchronized void NickNameCONF(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         kontext.NickNameCONFDO(ici,sdu);
-        if(sdu.text=="NOT_ACCEPTED"){
-            kontext.VerbindungsabbauAnfrageIND(ici,sdu);
-        }else{
+        if(sdu.text.equalsIgnoreCase("ACCEPTED")){
             System.out.println("Client: AbfrageUserdataClient -> VerbundenClient");
             kontext.nextState(ici,VerbundenClient.getSingelton());
         }
