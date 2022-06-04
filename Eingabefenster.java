@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.Color;
+import java.util.concurrent.TimeUnit;
 
 /**
  * In einem Eingabefenster kann ein Zeile für die Chatkonferenz eingegeben werden.
@@ -18,7 +19,7 @@ public class Eingabefenster extends Thread {
 
     private boolean isActive = true; // true, solange das Eingabefenster aktiv ist
     
-    private boolean FrageNachUserdaten = false;
+    private boolean FrageNachUserdaten = true;
     
     private ChatClient client;  // Client, an den alle Texte weitergereicht werden
 
@@ -52,16 +53,22 @@ public class Eingabefenster extends Thread {
         // solange die Eingabe aktiv sein soll
         while(isActive){
             if (FrageNachUserdaten){
+                String username = JOptionPane.showInputDialog(fenster,"Bitte geben Sie einen Benutzernamen ein.");
+                client.sendUserdata(username);
+                try
+                {
+                    TimeUnit.SECONDS.sleep(5);
+                }
+                catch (InterruptedException ie)
+                {
+                    ie.printStackTrace();
+                }
+            }else{
                 String antwort = ask(); // ruf den Dialog auf
-            
                 // wenn es eine gültige antwort gibt
                 if (antwort != null && !antwort.equalsIgnoreCase("null")){
                     client.send(antwort); // schicke die antwort an den client
                 }
-            }else{
-                String username = JOptionPane.showInputDialog(fenster,"Bitte geben Sie einen Benutzernamen ein.");
-                client.sendUserdata(username);
-                
             }
             
         }

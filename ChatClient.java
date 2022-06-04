@@ -200,7 +200,7 @@ public class ChatClient implements ClientType
             String antwort = sdu.text;
             System.out.println(antwort);
             
-            if (antwort == "NOT_ACCEPTED"){
+            if(antwort == "NOT_ACCEPTED"){
                 System.out.println("Dieser Username ist bereits vergeben. Wählen Sie einen anderen!");
             }else{
                 System.out.println("antwort == "+antwort);

@@ -56,5 +56,9 @@ public class AbfrageUserdataServer extends ChatAnwendungsschichtZustand
     public synchronized void NickNameRESP(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         kontext.NickNameRESPDO(ici,sdu);
+        if (sdu.text == "ACCEPTED"){
+            kontext.nextState(ici,VerbundenServer.getSingelton());
+            System.out.println("Server: AbfrageUserdataServer -> VerbundenServer");
+        }
     }
 }
