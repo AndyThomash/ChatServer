@@ -193,8 +193,10 @@ public class ChatClient implements ClientType
             System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
             
             String antwort = sdu.text;
+            System.out.println(antwort);
             
-            if (antwort == "ACCPETED"){
+            if (antwort == "ACCEPTED"){
+                System.out.println("antwort == ACCEPTED");
                 eingabe.unactiveFrageNachUserdaten();
             }else{
                 System.out.println("Dieser Username ist bereits vergeben. Wählen Sie einen anderen!");

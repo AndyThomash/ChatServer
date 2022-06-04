@@ -47,7 +47,7 @@ public class VerbindungsaufbauWartendClient extends ChatAnwendungsschichtZustand
     public synchronized void VerbindungsaufbauCONF(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
         kontext.VerbindungsaufbauCONFDO(ici,sdu);
-        System.out.println("Client: VerbindungsaufbauWartendServer -> AbfrageUserdataClient");
+        System.out.println("Client: VerbindungsaufbauWartendClient -> AbfrageUserdataClient");
         kontext.nextState(ici,AbfrageUserdataClient.getSingelton());
     }
     

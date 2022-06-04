@@ -44,33 +44,17 @@ public class AbfrageUserdataServer extends ChatAnwendungsschichtZustand
                                       // Der Aufruf der Konstruktormethode des Oberklasse muss in der ersten Zeile des Konstruktors stehen.
     }
     /**
-     * VerbindungsabbauAnfrageIND
+     * NickNameIND
      */
-    public synchronized void VerbindungsabbauAnfrageIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    public synchronized void NickNameIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
-        kontext.VerbindungsabbauAnfrageINDDO(ici,sdu);
+        kontext.NickNameINDDO(ici,sdu);
     }
     /**
-     * VerbindungsabbauREQ
+     * NickNameRESP
      */
-    public synchronized void VerbindungsabbauREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
+    public synchronized void NickNameRESP(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
     {
-        kontext.VerbindungsabbauREQDO(ici,sdu);
-        System.out.println("Server: AbfrageUserdataServer -> VerbundenServer");
-        kontext.nextState(ici,VerbundenServer.getSingelton());
-    }
-    /**
-     * TextREQ
-     */
-    public synchronized void TextREQ(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
-    {
-        kontext.TextREQDO(ici,sdu);
-    }
-    /**
-     * TextAnmeldenIND
-     */
-    public synchronized void TextAnmeldenIND(ChatAnwendungsschicht kontext,ICI ici,SDU sdu) throws Exception
-    {
-        kontext.TextAnmeldenINDDO(ici,sdu);
+        kontext.NickNameRESPDO(ici,sdu);
     }
 }

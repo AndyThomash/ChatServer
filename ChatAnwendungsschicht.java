@@ -385,7 +385,7 @@ public class ChatAnwendungsschicht extends Thread
     public synchronized void VerbindungsabbauREQDO(ICI ici,SDU sdu) throws Exception
     {
         System.out.println("ChatAnwendungsschicht: VerbindungsabbauREQ("+ici.toString()+","+"––"+")");
-        if(server  != null){
+        if(server != null){
             PDU pdu = new PDU("Verbindungsabbau",sdu); // erzeuge eine PDU mit dem Header "Verbindungsabbau"
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
@@ -442,12 +442,12 @@ public class ChatAnwendungsschicht extends Thread
     public synchronized void NickNameREQDO(ICI ici,SDU sdu) throws Exception
     {
         System.out.println("ChatAnwendungsschicht: NickNameREQ("+ici.toString()+","+sdu.text+")");
-        if(server  != null){
+        if(client != null){
             PDU pdu = new PDU("NickNameAnfrage",sdu); // erzeuge eine PDU mit dem Header "NickNameAnfrage" und einen Datenteil mit sdu.text
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
-            System.err.println("TextREQ: kein Server");
+            System.err.println("NickNameREQDO: kein Client");
         }
     }
 
@@ -471,7 +471,7 @@ public class ChatAnwendungsschicht extends Thread
     public synchronized void NickNameINDDO(ICI ici,SDU sdu) throws Exception
     {
         System.out.println("ChatAnwendungsschicht: NickNameIND("+ici.toString()+","+"––"+")");
-        if(server  != null){
+        if(server != null){
             server.NickNameIND(ici,sdu); // meldet dem server Namenswunsch des Clients
         }else {
             System.err.println("NickNameIND: kein Server");
@@ -503,7 +503,7 @@ public class ChatAnwendungsschicht extends Thread
 
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
-            System.err.println("NickNameRESPdo: kein Server");
+            System.err.println("NickNameRESPDO: kein Server");
         }
     }
 
@@ -527,10 +527,10 @@ public class ChatAnwendungsschicht extends Thread
     public synchronized void NickNameCONFDO(ICI ici,SDU sdu) throws Exception
     {
         System.out.println("ChatAnwendungsschicht: NickNameCONF("+ici.toString()+","+"––"+")");
-        if(server  != null){
+        if(client  != null){
             client.NickNameCONF(ici,sdu); // meldet dem Clienten die Antwort des Servers
         }else {
-            System.err.println("NickNameCONFdo: kein Server");
+            System.err.println("NickNameCONFDO: kein Client");
         }
     }
 
