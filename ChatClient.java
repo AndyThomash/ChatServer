@@ -164,6 +164,11 @@ public class ChatClient implements ClientType
         }
     }
 
+    /**
+     * Der gewählte Nickname wird der Anwendungsschicht durch eine neue SDU gegeben.
+     * Dort wird er dem Server gemeldet
+     * @para data der gewählte Name
+     */
     public synchronized void sendUserdata(String data){
         System.out.println("Client: sendUserdata("+data+")");
         // wenn eine Verbindung besteht
