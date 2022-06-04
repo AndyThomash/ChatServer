@@ -42,6 +42,7 @@ public class ChatClient implements ClientType
     private ICI myICI; // ein Client besitzt genau eine Verbindung, diese wird in myICI gespeichert
     private Anzeigefenster anzeige; // Ausgabefenster   
     private Eingabefenster eingabe; // Eingabefenster
+    private String myName;
 
     /**
      * Konstruktor für Objekte der Klasse ChatClient
@@ -141,7 +142,7 @@ public class ChatClient implements ClientType
 
         // wenn eine Verbindung besteht
         if (myICI != null){
-            SDU sdu = new SDU(text);
+            SDU sdu = new SDU(myName+": "+text);
             try{
                 anwendungsschicht.TextAnmeldenREQ(myICI,sdu); // fordere einen Textwunsch beim Server an
             } catch(Exception e){
@@ -151,7 +152,7 @@ public class ChatClient implements ClientType
             }
             
             // wenn es einen text gibt und dieser Ende heißt
-            if (text != null && text.equalsIgnoreCase("ENDE")){
+            if (text != null && text.equalsIgnoreCase(myName+": "+"ENDE")){
                 System.out.println("Client: ENDE erkannt.");
                 try {
                     anwendungsschicht.VerbindungsabbauAnfrageREQ(myICI,new SDU("")); // fordere einen Verbindungsabbauwunsch beim Server an
@@ -174,6 +175,7 @@ public class ChatClient implements ClientType
         // wenn eine Verbindung besteht
         if (myICI != null && data != null){
             SDU sdu = new SDU(data);
+            myName = data;
             try{
                 anwendungsschicht.NickNameREQ(myICI,sdu); // fordere einen Textwunsch beim Server an
             } catch(Exception e){
