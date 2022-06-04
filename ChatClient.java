@@ -195,11 +195,11 @@ public class ChatClient implements ClientType
             String antwort = sdu.text;
             System.out.println(antwort);
             
-            if (antwort == "ACCEPTED"){
-                System.out.println("antwort == ACCEPTED");
-                eingabe.unactiveFrageNachUserdaten();
-            }else{
+            if (antwort == "NOT_ACCEPTED"){
                 System.out.println("Dieser Username ist bereits vergeben. Wählen Sie einen anderen!");
+            }else{
+                System.out.println("antwort == "+antwort);
+                eingabe.unactiveFrageNachUserdaten();
             }
         }
     }
