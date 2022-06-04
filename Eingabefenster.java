@@ -39,7 +39,10 @@ public class Eingabefenster extends Thread {
     /**
      * Diese Methode nicht aufrufen. Sie wird über start() gestartet (s. Thread).
      * <p> 
+     * <b> Fragt nach Nickname wenn Nickname noch nicht festgelegt f</b>
+     * <p> 
      * <b>Wiederholtes Anzeigen des Dialogfensters</b>
+     * <b></b>
      * 
      */
     @Override
@@ -78,6 +81,10 @@ public class Eingabefenster extends Thread {
 
     }
     
+    /**
+     * Set Methode um von der Frage nach dem NickNamen zur normalen Eingabe 
+     * zu  wechseln.
+     */
     public void unactiveFrageNachUserdaten(){
         FrageNachUserdaten = false;
     }
