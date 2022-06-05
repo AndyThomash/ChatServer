@@ -37,10 +37,6 @@ public class Anzeigefenster extends JFrame {
             labelArr[i] = new JLabel("");
             anzeigen(labelArr[i],i);
         }
-        
-        
-        
-        
     }
     
     // zeige eine Zeile an

@@ -483,7 +483,7 @@ public class ChatAnwendungsschicht extends Thread
      * @param ici Verbindung
      * @param sdu Information ob doppelt
      */
-    public synchronized void NickNameRESP(ICI ici,SDU sdu)  throws Exception
+    public synchronized void NickNameRESP(ICI ici,SDU sdu) throws Exception
     {
         getSocketZustand(ici.socket).zustand.NickNameRESP(this,ici,sdu);
     }
@@ -512,7 +512,7 @@ public class ChatAnwendungsschicht extends Thread
      * @param ici Verbindung
      * @param sdu Information ob doppelt
      */
-    public synchronized void NickNameCONF(ICI ici,SDU sdu)  throws Exception
+    public synchronized void NickNameCONF(ICI ici,SDU sdu) throws Exception
     {
         getSocketZustand(ici.socket).zustand.NickNameCONF(this,ici,sdu);
     }

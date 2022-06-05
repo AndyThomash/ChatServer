@@ -43,6 +43,9 @@ public class ChatClient implements ClientType
     private Anzeigefenster anzeige; // Ausgabefenster   
     private Eingabefenster eingabe; // Eingabefenster
     private String myName;
+    private int red = 0;
+    private int green = 0;
+    private int blue = 0;
 
     /**
      * Konstruktor für Objekte der Klasse ChatClient
@@ -142,7 +145,10 @@ public class ChatClient implements ClientType
 
         // wenn eine Verbindung besteht
         if (myICI != null){
-            SDU sdu = new SDU(myName+": "+text);
+            SDU sdu = new SDU(myName+": "+text,red,green,blue);
+            if (text != null && text.equalsIgnoreCase("CHANGE_COLOR")){
+                eingabe.frageNachColor(true);
+            }
             try{
                 anwendungsschicht.TextAnmeldenREQ(myICI,sdu); // fordere einen Textwunsch beim Server an
             } catch(Exception e){
@@ -152,7 +158,7 @@ public class ChatClient implements ClientType
             }
             
             // wenn es einen text gibt und dieser Ende heißt
-            if (text != null && text.equalsIgnoreCase(myName+": "+"ENDE")){
+            if (text != null && text.equalsIgnoreCase("ENDE")){
                 System.out.println("Client: ENDE erkannt.");
                 try {
                     anwendungsschicht.VerbindungsabbauAnfrageREQ(myICI,new SDU("")); // fordere einen Verbindungsabbauwunsch beim Server an
@@ -206,11 +212,20 @@ public class ChatClient implements ClientType
                 System.out.println("Dieser Username ist bereits vergeben. Wählen Sie einen anderen!");
             }else{
                 System.out.println("antwort == "+antwort);
-                eingabe.unactiveFrageNachUserdaten();
+                eingabe.unactiveFrageNachNickname();
             }
         }
     }
 
+    /**
+     * Setzt die Farbe des Chatteilnehmers
+     */
+    public synchronized void setColor(int red, int green, int blue){
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+        eingabe.frageNachColor(false);
+    }
     
     /**
      * Schließt das Programm und alle gestarteten Threads.

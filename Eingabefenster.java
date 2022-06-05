@@ -19,13 +19,13 @@ public class Eingabefenster extends Thread {
 
     private boolean isActive = true; // true, solange das Eingabefenster aktiv ist
     
-    private boolean FrageNachUserdaten = true;
+    private boolean FrageNachNickname = true;
+    private boolean FrageNachColor = false;
     
     private ChatClient client;  // Client, an den alle Texte weitergereicht werden
 
     public Eingabefenster(ChatClient client) {
         this.client = client;
-
     }
 
     /**
@@ -52,7 +52,7 @@ public class Eingabefenster extends Thread {
         
         // solange die Eingabe aktiv sein soll
         while(isActive){
-            if (FrageNachUserdaten){
+            if (FrageNachNickname){
                 String username = JOptionPane.showInputDialog(fenster,"Bitte geben Sie einen Benutzernamen ein.");
                 client.sendUserdata(username);
                 try
@@ -63,14 +63,45 @@ public class Eingabefenster extends Thread {
                 {
                     ie.printStackTrace();
                 }
+            }else if(FrageNachColor){
+                String color = JOptionPane.showInputDialog(fenster,"Bitte geben Sie eine Farbe als RGB-Wert an. Beispiel: 255,255,255. Die Farbe kann jederzeit mit CHANGE_COLOR geändert werden.");
+                String[] colorArray = color.split(",",3);
+                try{
+                    int red = Integer.parseInt(colorArray[0]);
+                    int green = Integer.parseInt(colorArray[1]);
+                    int blue = Integer.parseInt(colorArray[2]);
+                    if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255){
+                        client.setColor(red,green,blue);
+                        try
+                        {
+                            TimeUnit.SECONDS.sleep(5);
+                        }
+                        catch (InterruptedException ie)
+                        {
+                            ie.printStackTrace();
+                        }
+                    }else{
+                        System.out.println("Bitte geben Sie 3 Zahlen zwischen 0 und 255 ein!");
+                    }
+                }
+                catch (NumberFormatException ex){
+                    System.out.println("Bitte geben Sie 3 Zahlen zwischen 0 und 255 ein!");
+                }
             }else{
                 String antwort = ask(); // ruf den Dialog auf
                 // wenn es eine gültige antwort gibt
                 if (antwort != null && !antwort.equalsIgnoreCase("null")){
                     client.send(antwort); // schicke die antwort an den client
                 }
+                try
+                        {
+                            TimeUnit.SECONDS.sleep(5);
+                        }
+                        catch (InterruptedException ie)
+                        {
+                            ie.printStackTrace();
+                        }
             }
-            
         }
         
         // die Schleife wird verlassen, wenn das Eingabefenster nicht mehr aktiv ist
@@ -89,10 +120,16 @@ public class Eingabefenster extends Thread {
     }
     
     /**
-     * Set Methode um von der Frage nach dem NickNamen zur normalen Eingabe 
-     * zu  wechseln.
+     * Set Methode, um von der Frage nach dem Nicknamen zur normalen Eingabe zu  wechseln.
      */
-    public void unactiveFrageNachUserdaten(){
-        FrageNachUserdaten = false;
+    public void unactiveFrageNachNickname(){
+        FrageNachNickname = false;
+    }
+    
+    /**
+     * Set-Methode, um zwischen Farbeingabe und normaler Eingabe zu welchseln.
+     */
+    public void frageNachColor(boolean bool){
+        FrageNachColor = bool;
     }
 }
