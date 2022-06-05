@@ -80,7 +80,7 @@ public class ChatClient implements ClientType
     public synchronized void TextIND(ICI ici, SDU sdu){
         System.out.println("Client: TextIND("+ici.socket.toString()+","+sdu.text+")");
 
-        anzeige.show(sdu.text);
+        anzeige.show(sdu.text+sdu.red+sdu.green+sdu.blue);
     }
 
     /**
@@ -213,6 +213,7 @@ public class ChatClient implements ClientType
             }else{
                 System.out.println("antwort == "+antwort);
                 eingabe.unactiveFrageNachNickname();
+                eingabe.frageNachColor(true);
             }
         }
     }

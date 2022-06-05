@@ -1,6 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+import java.awt.Color;
 
 /**
  * Im Anzeigefenster werden die Zeilen des Chats angezeigt.
