@@ -95,7 +95,7 @@ public class Eingabefenster extends Thread {
                 }
                 try
                         {
-                            TimeUnit.SECONDS.sleep(5);
+                            TimeUnit.SECONDS.sleep(1);
                         }
                         catch (InterruptedException ie)
                         {
