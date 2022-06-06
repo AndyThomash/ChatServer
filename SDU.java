@@ -39,8 +39,7 @@ public class SDU
             this.red   = Integer.parseInt(strArray[1]);
             this.green = Integer.parseInt(strArray[2]);
             this.blue  = Integer.parseInt(strArray[3]);
-        }
-        {
+        }else{
             toColor();
         }
     }

@@ -209,12 +209,11 @@ public class ChatClient implements ClientType
             System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
             
             String antwort = sdu.text;
-            System.out.println(antwort);
+            System.out.println("Nickname: "+antwort);
             
             if(antwort.equalsIgnoreCase("NOT_ACCEPTED")){
                 System.out.println("Dieser Username ist bereits vergeben. Wählen Sie einen anderen!");
             }else{
-                System.out.println("antwort == "+antwort);
                 eingabe.unactiveFrageNachNickname();
                 eingabe.frageNachColor(true);
             }

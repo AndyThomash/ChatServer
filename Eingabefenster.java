@@ -64,7 +64,7 @@ public class Eingabefenster extends Thread {
                     ie.printStackTrace();
                 }
             }else if(FrageNachColor){
-                String color = JOptionPane.showInputDialog(fenster,"Bitte geben Sie eine Farbe als RGB-Wert an. Beispiel: 255,255,255. Die Farbe kann jederzeit mit CHANGE_COLOR geändert werden.");
+                String color = JOptionPane.showInputDialog(fenster,"Bitte geben Sie eine Farbe als RGB-Wert an. Beispiel: 255,0,255. Die Farbe kann jederzeit mit CHANGE_COLOR geändert werden.");
                 String[] colorArray = color.split(",",3);
                 try{
                     int red = Integer.parseInt(colorArray[0]);
