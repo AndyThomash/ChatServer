@@ -57,7 +57,7 @@ public class Eingabefenster extends Thread {
                 client.sendUserdata(username);
                 try
                 {
-                    TimeUnit.SECONDS.sleep(5);
+                    TimeUnit.SECONDS.sleep(1);
                 }
                 catch (InterruptedException ie)
                 {
@@ -72,9 +72,12 @@ public class Eingabefenster extends Thread {
                     int blue = Integer.parseInt(colorArray[2]);
                     if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255){
                         client.setColor(red,green,blue);
+                        System.out.println("Rot: "+red);
+                        System.out.println("Grün: "+green);
+                        System.out.println("Blau: "+blue);
                         try
                         {
-                            TimeUnit.SECONDS.sleep(5);
+                            TimeUnit.SECONDS.sleep(1);
                         }
                         catch (InterruptedException ie)
                         {

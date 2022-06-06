@@ -80,7 +80,7 @@ public class ChatClient implements ClientType
     public synchronized void TextIND(ICI ici, SDU sdu){
         System.out.println("Client: TextIND("+ici.socket.toString()+","+sdu.text+")");
 
-        anzeige.show(sdu.text+sdu.red+sdu.green+sdu.blue);
+        anzeige.show(sdu.text);
     }
 
     /**
@@ -146,6 +146,9 @@ public class ChatClient implements ClientType
         // wenn eine Verbindung besteht
         if (myICI != null){
             SDU sdu = new SDU(myName+": "+text,red,green,blue);
+            System.out.println(sdu.red);
+            System.out.println(sdu.green);
+            System.out.println(sdu.blue);
             if (text != null && text.equalsIgnoreCase("CHANGE_COLOR")){
                 eingabe.frageNachColor(true);
             }
@@ -221,10 +224,10 @@ public class ChatClient implements ClientType
     /**
      * Setzt die Farbe des Chatteilnehmers
      */
-    public synchronized void setColor(int red, int green, int blue){
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
+    public synchronized void setColor(int rot, int gruen, int blau){
+        red = rot;
+        green = gruen;
+        blue = blau;
         eingabe.frageNachColor(false);
     }
     

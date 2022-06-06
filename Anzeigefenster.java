@@ -53,7 +53,17 @@ public class Anzeigefenster extends JFrame {
      * @param text Text für die aktuelle Zeile
      */
     public void show(String text){
-        labelArr[aktpos].setText(text);
+        String[] inputArray = text.split("µ~#§",4);
+        System.out.println("Input: "+text);
+        System.out.println("inputArray[0] = "+inputArray[0]);
+        System.out.println("inputArray[1] = "+inputArray[1]);
+        System.out.println("inputArray[2] = "+inputArray[2]);
+        System.out.println("inputArray[3] = "+inputArray[3]);
+        int red = Integer.parseInt(inputArray[1]);
+        int green = Integer.parseInt(inputArray[2]);
+        int blue = Integer.parseInt(inputArray[3]);
+        labelArr[aktpos].setForeground(new Color(red, green, blue));
+        labelArr[aktpos].setText(inputArray[0]);
         aktpos++;                   // erhöhe die aktuelle Zeile um 1
         aktpos = aktpos % 20;       // berechne die neue Zeile modulo 20 
     }

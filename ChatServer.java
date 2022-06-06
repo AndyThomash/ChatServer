@@ -140,7 +140,7 @@ public class ChatServer  implements ServerType
      */
     public synchronized void TextAnmeldenIND(ICI ici, SDU sdu){
         System.out.println("Server: TextAnmeldenIND("+ici.socket.toString()+","+sdu.text+")");
-
+        System.out.println("Server: TextAnmeldenIND: Rot: "+sdu.red+", Gruen: "+sdu.green+", Blau:"+sdu.blue);
         // Schicke den Text an alle zurück
         try{
             // für jede Verbindung

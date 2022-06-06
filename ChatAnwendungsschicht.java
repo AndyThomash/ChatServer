@@ -585,7 +585,7 @@ public class ChatAnwendungsschicht extends Thread
         System.out.println("ChatAnwendungsschicht: TextAnmeldenREQ("+ici.toString()+","+sdu.text+")");
         if(client  != null){
             PDU pdu = new PDU("TextAnmeldung",sdu); // erzeuge eine PDU mit dem Header "TextAnmeldung" und einen Datenteil mit sdu.text
-
+            System.out.println("ChatAnwendungsschicht: TextAnmeldenREQDO: Rot: "+sdu.red+", Gruen: "+sdu.green+", Blau:"+sdu.blue);
             send(ici,pdu); // verschicke die PDU für diese Verbindung 
         }else {
             System.err.println("TextAnmeldenREQ: kein Client");
@@ -614,6 +614,9 @@ public class ChatAnwendungsschicht extends Thread
         System.out.println("ChatAnwendungsschicht: TextIND("+ici.toString()+","+sdu.text+")");
         if(client  != null){
             client.TextIND(ici,sdu); // gibt die Text-Anzeige an den client weiter
+            System.out.println(sdu.red);
+            System.out.println(sdu.green);
+            System.out.println(sdu.blue);
         }else {
             System.err.println("TextIND: kein Client");
         }

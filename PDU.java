@@ -41,6 +41,7 @@ public class PDU
     {
         // Instanzvariable initialisieren
         this.header = header;
+        sdu.toText();
         this.sdu = sdu.text;
     }
     
