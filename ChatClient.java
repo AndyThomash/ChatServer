@@ -80,7 +80,7 @@ public class ChatClient implements ClientType
     public synchronized void TextIND(ICI ici, SDU sdu){
         System.out.println("Client: TextIND("+ici.socket.toString()+","+sdu.text+")");
 
-        anzeige.show(sdu.text);
+        anzeige.show(sdu);
     }
 
     /**

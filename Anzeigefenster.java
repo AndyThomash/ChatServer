@@ -44,7 +44,7 @@ public class Anzeigefenster extends JFrame {
     // pos: Position der Zeile (zwischen 0 und 19)
     private void anzeigen(JLabel label, int pos){       
         label.setBounds(5,20*pos,790,18);
-        add(label);    
+        add(label);
     }
     
     /**
@@ -52,18 +52,13 @@ public class Anzeigefenster extends JFrame {
      * Die aktuelle Zeile wechselt bei einem Überlauf wieder in die erste Zeile.
      * @param text Text für die aktuelle Zeile
      */
-    public void show(String text){
-        String[] inputArray = text.split("µ~#§",4);
-        System.out.println("Input: "+text);
-        System.out.println("inputArray[0] = "+inputArray[0]);
-        System.out.println("inputArray[1] = "+inputArray[1]);
-        System.out.println("inputArray[2] = "+inputArray[2]);
-        System.out.println("inputArray[3] = "+inputArray[3]);
-        int red = Integer.parseInt(inputArray[1]);
-        int green = Integer.parseInt(inputArray[2]);
-        int blue = Integer.parseInt(inputArray[3]);
-        labelArr[aktpos].setForeground(new Color(red, green, blue));
-        labelArr[aktpos].setText(inputArray[0]);
+    public void show(SDU sdu){
+        int rot = sdu.red;
+        int gruen = sdu.green;
+        int blau = sdu.blue;
+        
+        labelArr[aktpos].setForeground(new Color(rot, gruen, blau));
+        labelArr[aktpos].setText(sdu.text);
         aktpos++;                   // erhöhe die aktuelle Zeile um 1
         aktpos = aktpos % 20;       // berechne die neue Zeile modulo 20 
     }

@@ -34,7 +34,13 @@ public class SDU
             this.red   =NULLCOLOR;
             this.green =NULLCOLOR;
             this.blue  =NULLCOLOR;
-        }else{
+        }else if(strArray.length == 4){
+            this.text = strArray[0];
+            this.red   = Integer.parseInt(strArray[1]);
+            this.green = Integer.parseInt(strArray[2]);
+            this.blue  = Integer.parseInt(strArray[3]);
+        }
+        {
             toColor();
         }
     }
