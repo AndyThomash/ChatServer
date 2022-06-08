@@ -12,7 +12,7 @@
 public abstract class ChatAnwendungsschichtZustand
 {
     String name = "ChatAnwendungsschichtZustand"; // Name des Zustands, wird von den Objekten der Unterklassen individuell gesetzt.
-
+    
     public ChatAnwendungsschichtZustand(String name){
         this.name = name;
     }
