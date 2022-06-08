@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
  * Da ein Schließen des Fensters die Zeichenkette "null" sendet, wurde die Ausgabe von "null" abgfangen.
  * "null" wird nicht dargestellt (Groß- und Kleinschreibung wird nicht beachtet).
  * 
- * @author LK
- * @version 2021-09-30
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class Eingabefenster extends Thread {
 
@@ -43,7 +43,10 @@ public class Eingabefenster extends Thread {
      * <b> Fragt nach Nickname wenn Nickname noch nicht festgelegt f</b>
      * <p> 
      * <b>Wiederholtes Anzeigen des Dialogfensters</b>
-     * <b></b>
+     * <p>
+     * <b> Fragt nach Nickname</b>
+     * <p>
+     * <b> Fragt nach Farbe</b>
      * 
      */
     @Override

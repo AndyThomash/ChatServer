@@ -4,8 +4,8 @@
  * Es wird damit nur eine neue Art von Ausnahme eingeführt. 
  * Sie hat keinen besondere Zustand und kein besonderes Verhalten.
  * 
- * @author LK
- * @version 2021-11-17
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class ZustandException extends Exception
 {

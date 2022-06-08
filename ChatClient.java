@@ -14,8 +14,8 @@ import java.net.Socket;
  * Schreibt ein Konferenzteilnehmer die Nachricht ENDE (Groß- und Kleinschreibung werden ignoriert), 
  * so wird die Konferenz für alle Teilnehmer beendet. 
  * 
- * @author LK
- * @version 2021-11-17
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class ChatClient implements ClientType
 {
@@ -198,7 +198,7 @@ public class ChatClient implements ClientType
     /** 
      * Überprüfen und speichern des Namens wird aufgerufen.
      * <p>
-     * ???
+     * 
      * @param ici mit socket
      * @param sdu angenommen/Nicht Angenommen
      */

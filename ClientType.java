@@ -2,8 +2,8 @@
 /**
  * Dieser Datentyp defniert die Methoden, die von der ChatAnwendungsschicht bei einem Client aufgerufen werden.
  * 
- * @author LK
- * @version 2021-09-30
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 
 public interface ClientType

@@ -14,6 +14,7 @@ import java.util.Set;
  * <li>Verbindungsaufbau (REQ,IND,RESP,CONF)
  * <li>VerbindungsabbauAnfrage (REQ,IND)
  * <li>Verbindungsabbau (REQ,IND)
+ * <li>NickName (REQ,IND,RESP,CONF)
  * <p>
  * <li>TextAnmeldung (REQ,IND)
  * <li>Text (REQ,IND)
@@ -35,14 +36,19 @@ import java.util.Set;
  * <li>VerbindungsabbauREQ: Server baut alle Clientverbindungen ab (EINFACH)
  * <li>VerbindungsabbauIND: Verbindungsabbau bei jedem Client
  * <p>
+ * <li> NickNameREQ: Client sendet den Username.
+ * <li> NickNameIND: Server überprüft den Username und speichert ihn wenn dieser nicht doppelt ist.
+ * <li> NickNameRESP: Server antwortet dem Clienten
+ * <li> NickNameCONF: Client erhält antwort, gegebenenfalls wird eine erneute Eingabe angefordert.
+ * <p>
  * <li>TextAnmeldungREQ: Client meldet Textwunsch an
  * <li>TextAnmeldungIND: Server erhält Textwunsch vom CLient
  * <p>
  * <li>TextREQ: Server schickt Text an alle Clients
  * <li>TextIND: jeder Client erhält den Text
  * </ul>
- * @author LK
- * @version 2021-11-17
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class ChatAnwendungsschicht extends Thread
 {
@@ -464,7 +470,7 @@ public class ChatAnwendungsschicht extends Thread
     /**
      * Wird von einem Zustand aufgerufen.
      * <p>
-     * Meldet den NickName dem Dienstbenutzer (Server).
+     * Meldet den NickName dem Server zur Überprüfung.
      * @param ici Verbindung
      * @param sdu NickName
      */
@@ -508,7 +514,7 @@ public class ChatAnwendungsschicht extends Thread
     }
 
     /**
-     * Fordert die Übertragung von Text an den Client an.
+     * Fordert die Meldung der Ergebnisse dem Dienstbenutzer (Client) an.
      * @param ici Verbindung
      * @param sdu Information ob doppelt
      */
