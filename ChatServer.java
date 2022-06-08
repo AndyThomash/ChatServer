@@ -76,10 +76,10 @@ public class ChatServer  implements ServerType
         // wenn ici existiert und ici.socket existiert
         if (ici != null && ici.socket!=null) {
             System.out.println("Server: VerbindungsaufbauIND("+ici.socket.toString()+","+"––"+")");
-            
+
             //interne Verwaltung
             socketListe.add(ici.socket);
-            
+
             try
             {
                 //Erzeugung der Antwort an den Client mit Versionsnummer
@@ -107,7 +107,7 @@ public class ChatServer  implements ServerType
         // wenn ici existiert und ici.socket existiert
         if (ici != null && ici.socket!=null) {
             System.out.println("Server: NickNameIND("+ici.socket.toString()+","+"––"+")");
-            
+
             boolean antwortBoolean = nickVerwaltung.putNickname(ici.socket,sdu.text);
             String antwortString;
             if(antwortBoolean){
@@ -115,8 +115,7 @@ public class ChatServer  implements ServerType
             }else{
                 antwortString = "NOT_ACCEPTED";
             }
-            
-            
+
             try
             {
                 System.out.println("NickNameRESP wird ausgeführt");
@@ -131,7 +130,6 @@ public class ChatServer  implements ServerType
         }
     }
 
-    
     /**
      * Anzeige eines Textwunsches beim Server. <p>
      * Es wird eine Textanforderung für diesen Text an alle bekannten Clientverbindungen geschickt.
@@ -142,15 +140,17 @@ public class ChatServer  implements ServerType
         System.out.println("Server: TextAnmeldenIND("+ici.socket.toString()+","+sdu.text+")");
         System.out.println("Server: TextAnmeldenIND: Rot: "+sdu.red+", Gruen: "+sdu.green+", Blau:"+sdu.blue);
         // Schicke den Text an alle zurück
-        try{
-            // für jede Verbindung
-            for(Socket socketAusgang : socketListe){ 
+        // für jede Verbindung
+        for(Socket socketAusgang : socketListe){ 
+            try{
+
                 anwendungsschicht.TextREQ(new ICI(socketAusgang), sdu); // fordert die Textübertragung an
+
+            } catch(Exception e){
+                e.printStackTrace();
+                System.out.println("ChatServer: Unvollständige Verbindung eines Clients?");
+                //close();
             }
-        } catch(Exception e){
-            e.printStackTrace();
-            System.out.println("ChatServer: unknown Error, ChatSystem will shut down.");
-            close();
         }
     }
 
