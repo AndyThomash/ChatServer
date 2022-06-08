@@ -98,7 +98,7 @@ public class ChatServer  implements ServerType
     /** 
      * Überprüfen und speichern des Namens wird aufgerufen.
      * <p>
-     * ???
+     * 
      * @param ici mit socket
      * @param sdu gewählter Name
      */
