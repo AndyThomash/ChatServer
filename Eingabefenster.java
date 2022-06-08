@@ -87,7 +87,7 @@ public class Eingabefenster extends Thread {
                         System.out.println("Bitte geben Sie 3 Zahlen zwischen 0 und 255 ein!");
                     }
                 }
-                catch (NumberFormatException ex){
+                catch (Exception ex){
                     System.out.println("Bitte geben Sie 3 Zahlen zwischen 0 und 255 ein!");
                 }
             }else{
