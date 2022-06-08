@@ -10,8 +10,8 @@
  * <p>
  * Es gibt nur eine Instanz dieser Klasse, die mit dem Singelton-Pattern verwaltet wird.
  * 
- * @author LK
- * @version 2021-11-17
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class VerbindungsaufbauWartendClient extends ChatAnwendungsschichtZustand
 {
