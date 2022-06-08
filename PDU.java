@@ -8,8 +8,8 @@
  * Eine PDU kann die Struktur auch aufgeben und Headeer und SDU in einer Zeichenkette kodieren.
  * Bei der Erzeugung kann aus einer unstrukturierten Zeichenkette die Darstellung in Header und SDU erstellt werden.
  * 
- * @author LK
- * @version 2021-09-30
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class PDU
 {
@@ -44,7 +44,7 @@ public class PDU
         sdu.toText();
         this.sdu = sdu.text;
     }
-    
+
     /**
      * Konstruktor für Objekte der Klasse PDU
      * Die Daten werden als Header und SDU gespeichert.
@@ -72,5 +72,5 @@ public class PDU
     String getPDU(){
         return header+":"+sdu;
     }
-    
+
 }

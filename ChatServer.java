@@ -9,8 +9,8 @@ import java.util.*;
  * 
  * Der ChatServer schickt dafür den Text der einkommenden Nachrichten an alle Teilnehmer.
  * 
- * @author LK
- * @version 2021-11-17
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class ChatServer  implements ServerType
 {

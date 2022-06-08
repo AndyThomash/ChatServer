@@ -12,8 +12,8 @@ import java.net.Socket;
  * <p>
  * Die update-Methode wechselt von der Belegung (ip,port) zu (socket).
  * 
- * @author LK
- * @version 2021-11-17
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class ICI
 {
@@ -116,7 +116,7 @@ public class ICI
         if (status != StatusTyp.NO_STATUS){
             iciString = iciString + status.toString();
         }
-        
+
         return iciString;
 
     }

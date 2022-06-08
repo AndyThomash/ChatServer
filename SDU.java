@@ -7,8 +7,8 @@
  * 
  * Eine SDU kann die Struktur in Text und RGB-Werte auch aufheben und die RGB-Werte im Text kodieren und dekodieren.
  * 
- * @author LK
- * @version 2021-09-30
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class SDU
 {
@@ -23,6 +23,7 @@ public class SDU
 
     /**
      * Konstruktor für Objekte der Klasse SDU
+     * @para text
      */
     public SDU(String text)
     {
@@ -44,6 +45,13 @@ public class SDU
         }
     }
 
+    /**
+     * Konstruktor für Objekte der Klasse SDU
+     * @para text
+     * @para rot 
+     * @para grün
+     * @para blau
+     */
     public SDU(String text, int red, int green, int blue)
     {
         // Instanzvariable initialisieren
@@ -53,6 +61,9 @@ public class SDU
         this.blue   = blue;
     }
 
+    /**
+     * Fügt den Text und die Farben zu einem String zusammen.
+     */
     public void toText(){
         if (red != NULLCOLOR){
             this.text = text+"###"+red+"###"+green+"###"+blue;
@@ -62,6 +73,9 @@ public class SDU
         }
     }
 
+    /**
+     * Trennt den Text und die Farben.
+     */
     public void toColor(){
         String[] strArray = text.split("###",4);
 
