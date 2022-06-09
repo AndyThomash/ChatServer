@@ -12,7 +12,7 @@ import java.util.*;
  * @author LK, Leo G., Marika K. Dave P. Lando A.
  * @version 2022-06-08
  */
-public class ChatServer  implements ServerType
+public class ChatServer implements ServerType
 {
 
     /**
