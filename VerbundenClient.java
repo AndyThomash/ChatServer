@@ -20,7 +20,7 @@ public class VerbundenClient extends ChatAnwendungsschichtZustand
 {
     // Klassenvariablen
     private static VerbundenClient singelton;
-    
+
     // Klassenmethode
     /**
      * Gibt das Singelton zurück. Ein Singelton wird beim ersten Aufruf erzeugt.
@@ -34,15 +34,14 @@ public class VerbundenClient extends ChatAnwendungsschichtZustand
     }
     // Instanzvariablen     
     // keine
-    
-    
+
     /**
      * Konstruktor für Objekte der Klasse VerbundenClient
      */
     private VerbundenClient()
     {
         super("VerbundenClient"); // Aufruf des Konstruktors der ChatAnwendungsschichtZustand-Klasse
-                                     // Der Aufruf der Konstruktormethode des Oberklasse muss in der ersten Zeile des Konstruktors stehen.
+        // Der Aufruf der Konstruktormethode des Oberklasse muss in der ersten Zeile des Konstruktors stehen.
     }
 
     /**
@@ -52,6 +51,7 @@ public class VerbundenClient extends ChatAnwendungsschichtZustand
     {
         kontext.VerbindungsabbauAnfrageREQDO(ici,sdu);
     }
+
     /**
      * VerbindungsabbauIND
      */
@@ -61,6 +61,7 @@ public class VerbundenClient extends ChatAnwendungsschichtZustand
         System.out.println("Client: VerbundenClient -> TCPGetrennt");
         kontext.nextState(ici,TCPGetrennt.getSingelton());
     }
+
     /**
      * TextAnmeldenREQ
      */
@@ -68,6 +69,7 @@ public class VerbundenClient extends ChatAnwendungsschichtZustand
     {
         kontext.TextAnmeldenREQDO(ici,sdu);
     }     
+
     /**
      * TextIND
      */
