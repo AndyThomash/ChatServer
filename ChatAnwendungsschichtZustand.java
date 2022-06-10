@@ -6,8 +6,8 @@
  * Die Unterklassen müssen gezielt die in den Zuständen erlaubten Methoden öffnen.
  * <p>
  * <i>Hinweis: Von abstrakten Klassen gibt es keine Instanzen.</i>
- * @author LK
- * @version 2021-11-17
+ * @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public abstract class ChatAnwendungsschichtZustand
 {

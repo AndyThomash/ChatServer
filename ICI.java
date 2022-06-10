@@ -1,7 +1,7 @@
 import java.net.Socket;
 
 /**
- * Eine Information Control Information wird nicht über das Netzwerk übertragen sondern steuert die Bearbeitung des Dienstes.
+ * Eine Information Control Interface wird nicht über das Netzwerk übertragen sondern steuert die Bearbeitung des Dienstes.
  * <p>
  * Es gibt die Belegungen:
  * <ul>
