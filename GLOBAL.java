@@ -3,12 +3,12 @@
 /**
  * Diese Klasse dient zur Vereinbarung aller global gültigen Konstanten
  * 
- * @author LK
- * @version 2021-09-30
+ * @author @author LK, Leo G., Marika K. Dave P. Lando A.
+ * @version 2022-06-08
  */
 public class GLOBAL
 {
     // Klassenkonstanten
     public static final int PORT =  3263;
-    public static final String VERSION = "V.021";
+    public static final String VERSION = "V.022";
 }
