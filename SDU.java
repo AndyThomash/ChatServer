@@ -28,10 +28,10 @@ public class SDU
     public SDU(String text)
     {
         String[] strArray = text.split("###",4);
-        
+
         if(strArray.length == 1){
             this.text = text;
-            
+
             this.red   =NULLCOLOR;
             this.green =NULLCOLOR;
             this.blue  =NULLCOLOR;

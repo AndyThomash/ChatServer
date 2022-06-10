@@ -18,10 +18,10 @@ public class Eingabefenster extends Thread {
     private JFrame fenster = new JFrame();
 
     private boolean isActive = true; // true, solange das Eingabefenster aktiv ist
-    
+
     private boolean FrageNachNickname = true;
     private boolean FrageNachColor = false;
-    
+
     private ChatClient client;  // Client, an den alle Texte weitergereicht werden
 
     public Eingabefenster(ChatClient client) {
@@ -52,7 +52,7 @@ public class Eingabefenster extends Thread {
     @Override
     public void run() { 
         System.out.println("Eingabefenster-Thread gestartet.");
-        
+
         // solange die Eingabe aktiv sein soll
         while(isActive){
             if (FrageNachNickname){
@@ -100,18 +100,18 @@ public class Eingabefenster extends Thread {
                     client.send(antwort); // schicke die antwort an den client
                 }
                 try
-                        {
-                            TimeUnit.SECONDS.sleep(1);
-                        }
-                        catch (InterruptedException ie)
-                        {
-                            ie.printStackTrace();
-                        }
+                {
+                    TimeUnit.SECONDS.sleep(1);
+                }
+                catch (InterruptedException ie)
+                {
+                    ie.printStackTrace();
+                }
             }
         }
-        
+
         // die Schleife wird verlassen, wenn das Eingabefenster nicht mehr aktiv ist
-        
+
         System.out.println("Eingabefenster wurde beendet.");
     }
 
@@ -124,14 +124,14 @@ public class Eingabefenster extends Thread {
         fenster.dispose(); // schließe das Fenster
 
     }
-    
+
     /**
      * Set Methode, um von der Frage nach dem Nicknamen zur normalen Eingabe zu  wechseln.
      */
     public void unactiveFrageNachNickname(){
         FrageNachNickname = false;
     }
-    
+
     /**
      * Set-Methode, um zwischen Farbeingabe und normaler Eingabe zu welchseln.
      */

@@ -692,9 +692,8 @@ public class ChatAnwendungsschicht extends Thread
 
                                 ICI ici = new ICI(socket); // erzeuge eine Verbindungsidentifikation
                                 PDU pdu = new PDU(inhalt); // zerlege den inhalt nach Header und Datenteil (pdu.header und pdu.sdu)
-                                SDU sdu = new SDU(pdu.sdu); // speichere den Datenteil als sdu
-
                                 try{
+                                    SDU sdu = new SDU(pdu.sdu); // speichere den Datenteil als sdu
                                     // verzweige nach dem Header der Nachricht in die entsprechenden Methoden
                                     if (pdu.header.equalsIgnoreCase("VerbindungsaufbauAntwort")){VerbindungsaufbauCONF(ici,sdu);}
                                     if (pdu.header.equalsIgnoreCase("Text")){TextIND(ici,sdu);}
